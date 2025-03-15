@@ -72,7 +72,7 @@ export default defineConfig({
 
 A good chunking strategy is very important to the performance of Electron app.
 
-You can configure how chunks are split using `build.rollupOptions.output.manualChunks` (see [Rollup docs](https://rollupjs.org/configuration-options/#output-manualchunks)). In addition, you can also add the `splitVendorChunkPlugin` provided by Vite to use the `Split Vendor Chunk` strategy.
+You can configure how chunks are split using `build.rollupOptions.output.manualChunks` (see [Rollup docs](https://rollupjs.org/configuration-options/#output-manualchunks)).
 
 ```js
 // electron.vite.config.ts
@@ -93,15 +93,8 @@ export default defineConfig({
     }
   },
   // ...
-  renderer: {
-    plugins: [splitVendorChunkPlugin()]
-  }
 })
 ```
-
-::: tip NOTE
-The `splitVendorChunkPlugin` exports from `Vite`.
-:::
 
 ## Externals
 
@@ -146,7 +139,7 @@ export default defineConfig({
 See [`dependencies` vs `devDependencies`](/guide/dev#dependencies-vs-devdependencies) for more details.
 
 ::: tip Recommend
-For the main process and preload scripts, the best practice is to externalize dependencies. For renderers, it is usually fully bundle, so dependencies are best installed in `devDependencies`. This makes the final package more smaller.
+For the main process and preload scripts, the best practice is to externalize dependencies. For renderers, it is usually fully bundle, so dependencies are best installed in `devDependencies`. This makes the final package smaller.
 :::
 
 ## Source Code Protection
